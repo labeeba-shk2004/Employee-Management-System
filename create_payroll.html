@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS - Create Payroll</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-building-user"></i>
+            <span>Employee<br>Management<br>System</span>
+        </div>
+        
+        <div class="sidebar-menu">
+            <p class="menu-label">Main</p>
+            <ul>
+                <li><a href="/dashboard.html"><i class="fa-solid fa-border-all"></i> Dashboard</a></li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-user-group"></i> Employees <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/view_employees.html">View Employees</a></li>
+                        <li><a href="/signup.html">Add Employee</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-building"></i> Departments <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/view_departments.html">View Departments</a></li>
+                        <li><a href="/add_department.html">Add Department</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-calendar-xmark"></i> Leave Management <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/manage_leaves.html">Manage Leaves</a></li>
+                        <li><a href="/add_leave.html">Add Leave</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu open">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-file-invoice-dollar"></i> Payroll <i class="fa-solid fa-chevron-up arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/manage_payroll.html">Manage Payroll</a></li>
+                        <li><a href="/create_payroll.html" class="active">Create Payroll</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-clock"></i> Attendance <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/manage_attendance.html">Manage Attendance</a></li>
+                        <li><a href="/add_attendance.html">Add Attendance</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/manage_announcements.html">Manage Announcements</a></li>
+                        <li><a href="/add_announcement.html">Add Announcement</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="fa-solid fa-bars menu-toggle"></i>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-primary btn-sm" onclick="window.location.href='/signup.html'"><i class="fa-solid fa-plus"></i> Add New Employee</button>
+                <button class="btn btn-danger btn-sm" id="logoutBtn">Logout</button>
+                <div class="notification-icon">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+                <div class="user-avatar" id="dashboardAvatar">A</div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <div class="dashboard-header-title">
+                <div>
+                    <h1 id="welcomeMessage">Create Payroll</h1>
+                </div>
+            </div>
+
+            <!-- Create Payroll Form -->
+            <div class="table-container" style="padding: 2rem; background-color: #fff; max-width: 900px;">
+                <form class="signup-form" style="width: 100%;" action="/manage_payroll.html">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="payrollEmployee">Employee</label>
+                            <select id="payrollEmployee" class="form-select" style="padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px;">
+                                <option value="">---------</option>
+                                <option value="sumit1 kumar">sumit1 kumar</option>
+                                <option value="mohan kumar">mohan kumar</option>
+                                <option value="jane doe">jane doe</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="payrollSalary">Salary</label>
+                            <input type="number" id="payrollSalary" placeholder="Enter salary">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="payPeriodStart">Pay Period Start</label>
+                            <input type="date" id="payPeriodStart">
+                        </div>
+                        <div class="input-group">
+                            <label for="payPeriodEnd">Pay Period End</label>
+                            <input type="date" id="payPeriodEnd">
+                        </div>
+                    </div>
+
+                    <button type="button" id="createPayrollBtn" class="btn btn-primary" style="margin-top: 1rem; background-color: #ff9800; border: none; min-width: 120px;">Create</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

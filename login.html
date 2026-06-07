@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS - Sign In</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-page">
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <i class="fa-solid fa-building-user"></i> EMS
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="/login.html" class="login-btn">Login</a>
+            <a href="/signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+    </nav>
+
+    <main class="login-main">
+        <div class="login-container">
+            <div class="login-header">
+                <i class="fa-solid fa-building-user login-logo-icon"></i>
+                <h2>Sign in to your account</h2>
+                <p>Or <a href="/signup.html" class="highlight-link">start your journey with us</a></p>
+            </div>
+            
+            <form id="standaloneLoginForm" class="login-form">
+                <div class="input-group">
+                    <input type="text" id="username" required value="" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" required value="" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Sign in</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

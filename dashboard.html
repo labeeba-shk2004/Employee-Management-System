@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-building-user"></i>
+            <span>Employee<br>Management<br>System</span>
+        </div>
+        
+        <div class="sidebar-menu">
+            <p class="menu-label">Main</p>
+            <ul>
+                <li><a href="/dashboard.html" class="active"><i class="fa-solid fa-border-all"></i> Dashboard</a></li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-user-group"></i> Employees <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/view_employees.html">View Employees</a></li>
+                        <li><a href="/signup.html">Add Employee</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-building"></i> Departments <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/view_departments.html">View Departments</a></li>
+                        <li><a href="/add_department.html">Add Department</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-calendar-xmark"></i> Leave Management <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/manage_leaves.html">Manage Leaves</a></li>
+                        <li><a href="/add_leave.html">Add Leave</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-file-invoice-dollar"></i> Payroll <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/manage_payroll.html">Manage Payroll</a></li>
+                        <li><a href="/create_payroll.html">Create Payroll</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-clock"></i> Attendance <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/manage_attendance.html">Manage Attendance</a></li>
+                        <li><a href="/add_attendance.html">Add Attendance</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="submenu-toggle"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="/manage_announcements.html">Manage Announcements</a></li>
+                        <li><a href="/add_announcement.html">Add Announcement</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="fa-solid fa-bars menu-toggle"></i>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-primary btn-sm" onclick="window.location.href='/signup.html'"><i class="fa-solid fa-plus"></i> Add New Employee</button>
+                <button class="btn btn-danger btn-sm" id="logoutBtn">Logout</button>
+                <div class="notification-icon">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+                <div class="user-avatar" id="dashboardAvatar">A</div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <div class="dashboard-header-title">
+                <div>
+                    <h1 id="welcomeMessage">Welcome, Admin</h1>
+                    <p>Here's what's happening with your team today.</p>
+                </div>
+                <div class="date-picker">
+                    <i class="fa-regular fa-calendar"></i> <span id="currentDateDisplay">August 27, 2025</span>
+                </div>
+            </div>
+
+            <!-- Stats Grid 1 (Colored Cards) -->
+            <div class="stats-grid primary-stats">
+                <!-- Card 1 -->
+                <div class="stat-card stat-orange">
+                    <div class="stat-info">
+                        <div class="stat-icon-wrapper"><i class="fa-solid fa-user-group"></i></div>
+                        <div>
+                            <p class="stat-title">Total Employees</p>
+                            <h3 class="stat-value" id="totalEmployeesCount">2</h3>
+                        </div>
+                    </div>
+                    <a href="#" class="view-link">View List</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="stat-card stat-darkblue">
+                    <div class="stat-info">
+                        <div class="stat-icon-wrapper"><i class="fa-solid fa-user-slash"></i></div>
+                        <div>
+                            <p class="stat-title">On Leave Today</p>
+                            <h3 class="stat-value" id="onLeaveCount">0</h3>
+                        </div>
+                    </div>
+                    <a href="#" class="view-link">View List</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="stat-card stat-teal">
+                    <div class="stat-info">
+                        <div class="stat-icon-wrapper"><i class="fa-solid fa-building"></i></div>
+                        <div>
+                            <p class="stat-title">Total Departments</p>
+                            <h3 class="stat-value" id="totalDepartmentsCount">6</h3>
+                        </div>
+                    </div>
+                    <a href="#" class="view-link">View List</a>
+                </div>
+                <!-- Card 4 -->
+                <div class="stat-card stat-lightblue">
+                    <div class="stat-info">
+                        <div class="stat-icon-wrapper"><i class="fa-solid fa-clipboard-check"></i></div>
+                        <div>
+                            <p class="stat-title">Pending Approvals</p>
+                            <h3 class="stat-value" id="pendingApprovalsCount">0</h3>
+                        </div>
+                    </div>
+                    <a href="#" class="view-link">View List</a>
+                </div>
+            </div>
+
+            <!-- Stats Grid 2 (White Cards) -->
+            <div class="stats-grid secondary-stats">
+                <!-- Card 1 -->
+                <div class="stat-card white-card">
+                    <div class="stat-header-flex">
+                        <div>
+                            <p class="stat-title-dark">Present Today</p>
+                            <h3 class="stat-value-dark">0</h3>
+                        </div>
+                        <div class="icon-box icon-green"><i class="fa-solid fa-user-check"></i></div>
+                    </div>
+                    <a href="#" class="view-link-blue">View All</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="stat-card white-card">
+                    <div class="stat-header-flex">
+                        <div>
+                            <p class="stat-title-dark">Total Announcements</p>
+                            <h3 class="stat-value-dark">1</h3>
+                        </div>
+                        <div class="icon-box icon-blue"><i class="fa-solid fa-bullhorn"></i></div>
+                    </div>
+                    <a href="#" class="view-link-blue">View All</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="stat-card white-card">
+                    <div class="stat-header-flex">
+                        <div>
+                            <p class="stat-title-dark">Approved Leave</p>
+                            <h3 class="stat-value-dark">0</h3>
+                        </div>
+                        <div class="icon-box icon-yellow"><i class="fa-regular fa-clipboard"></i></div>
+                    </div>
+                    <a href="#" class="view-link-blue">View All</a>
+                </div>
+                <!-- Card 4 -->
+                <div class="stat-card white-card">
+                    <div class="stat-header-flex">
+                        <div>
+                            <p class="stat-title-dark">Pending Payrolls</p>
+                            <h3 class="stat-value-dark">1</h3>
+                        </div>
+                        <div class="icon-box icon-red"><i class="fa-solid fa-dollar-sign"></i></div>
+                    </div>
+                    <a href="#" class="view-link-blue">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
